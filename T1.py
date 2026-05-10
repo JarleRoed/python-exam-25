@@ -4,7 +4,6 @@
 with open('./data/ListWordGame', 'r') as impFile:
     impLines = [line.strip() for line in impFile]
 
-#main
 
 #program interface
     print("--------------------------------------")
@@ -34,4 +33,4 @@ for iWord, word in enumerate(impLines, 1):
                 print(f"The word was {word}.")
                 break
 print("You won the game!")
-#matching iGuess
+
