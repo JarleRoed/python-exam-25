@@ -44,7 +44,7 @@ class Library:
 
     def showListBooks(self):
         for book in self.booksList:
-            print(f"{book.title} : {book.author} : {book.num_pages} pages : {book.num_copy} copies")
+            print(f"{book.title} | {book.author} | {book.num_pages} pages | {book.num_copy} copies")
 
 #program:
 
@@ -56,6 +56,13 @@ lib = Library()
 
 def iChoice():
     while True:
+        print("\n1. Show list of all books in the library:")
+        print("2. Add a book")
+        print("3. Remove book")
+        print("4. Check out a book")
+        print("5. Check in a book")
+        print("6. Exit the program")
+
         iInt = int(input("Choose 1-6"))
         if 1 <= iInt <= 6:
             match iInt:
@@ -66,7 +73,7 @@ def iChoice():
                     title = input("Enter the title of the book: ")
                     author = input("Enter name of author: ")
                     num_pages = input("Enter number of pages: ")
-                    num_copy = input("Enter number of copies added to library: ")
+                    num_copy = int(input("Enter number of copies added to library: "))
                     lib.add_book(title, author, num_pages, num_copy)
                 case 3:
                     title = input("Enter title of book to remove: ")
@@ -78,18 +85,11 @@ def iChoice():
                     title = input("Enter title of book you want to check in")
                     lib.check_in(title)
                 case 6:
-                    input("Goodbye!")
+                    print("Goodbye!")
                     quit()
-            break
         else:
             print("Invalid choice")
 
-print("\n1. Show list of all books in the library:")
-print("2. Add a book")
-print("3. Remove book")
-print("4. Check out a book")
-print("5. Check in a book")
-print("6. Exit the program")
 iChoice()
 
 #automatically print list(for testing)
