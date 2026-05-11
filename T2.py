@@ -54,34 +54,46 @@ print("------------------------")
 
 lib = Library()
 
-while True:
+def iChoice():
+    while True:
+        iInt = int(input("Choose 1-6"))
+        if 1 <= iInt <= 6:
+            match iInt:
+                case 1:
+                    print("List of all books:")
+                    lib.showListBooks()
+                case 2:
+                    title = input("Enter the title of the book: ")
+                    author = input("Enter name of author: ")
+                    num_pages = input("Enter number of pages: ")
+                    num_copy = input("Enter number of copies added to library: ")
+                    lib.add_book(title, author, num_pages, num_copy)
+                case 3:
+                    title = input("Enter title of book to remove: ")
+                    lib.remove_book(title)
+                case 4:
+                    title = input("Enter title of book you want to check out: ")
+                    lib.check_out(title)
+                case 5:
+                    title = input("Enter title of book you want to check in")
+                    lib.check_in(title)
+                case 6:
+                    input("Goodbye!")
+                    quit()
+            break
+        else:
+            print("Invalid choice")
 
-    print("\n1. Show list of all books in the library:")
-    print("2. Add a book")
-    print("3. ")
-    print("")
-    print("")
-    print("")
-
-
-
-    title = input("Enter the title of the book: ")
-
-    author = input("Enter name of author: ")
-
-    num_pages = input("Enter number of pages: ")
-    lib.add_book(title, author, num_pages)
-
-    rmBook = input("Enter book you want to remove from library system: ")
-
-
-
-    quit = input("Type Quit to end program")
-    if quit == "Quit":
-        break
+print("\n1. Show list of all books in the library:")
+print("2. Add a book")
+print("3. Remove book")
+print("4. Check out a book")
+print("5. Check in a book")
+print("6. Exit the program")
+iChoice()
 
 #automatically print list(for testing)
-lib.showListBooks()
+#lib.showListBooks()
 
 
 
